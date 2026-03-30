@@ -24,7 +24,7 @@ RUN chmod +x configure athena-start install.sh || true && \
     dos2unix configure athena-start install.sh || true && \
     ./configure && \
     make clean && \
-    make server
+    make -j2 server
 
 WORKDIR /rathena
 CMD ["./athena-start", "start"]
