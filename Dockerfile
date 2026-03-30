@@ -20,11 +20,13 @@ WORKDIR /opt
 RUN git clone https://github.com/rathena/rathena.git /rathena
 
 WORKDIR /rathena
-RUN chmod +x configure athena-start install.sh || true && \
-    dos2unix configure athena-start install.sh || true && \
+RUN chmod +x configure && \
+    dos2unix configure && \
     ./configure && \
     make clean && \
     make -j2 server
 
-WORKDIR /rathena
-CMD ["./athena-start", "start"]
+COPY entrypoint.sh /entrypoint.sh
+RUN dos2unix /entrypoint.sh && chmod +x /entrypoint.sh
+
+CMD ["/bin/bash", "/entrypoint.sh"]
