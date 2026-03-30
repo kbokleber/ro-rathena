@@ -13,9 +13,7 @@ services:
       - db_data:/var/lib/mysql
 
   rathena:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/kbokleber/ro-rathena:latest
     depends_on:
       - db
     ports:
