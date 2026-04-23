@@ -30,7 +30,8 @@ services:
       DB_PORT: 3306
       PUBLIC_IP: ${PUBLIC_IP:?}
     volumes:
-      - './rathena:/rathena'
+      - './rathena/conf:/rathena/conf'
+      - './rathena/log:/rathena/log'
 
 volumes:
   db_data:
