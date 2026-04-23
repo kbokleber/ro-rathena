@@ -29,6 +29,8 @@ services:
       DB_HOST: db
       DB_PORT: 3306
       PUBLIC_IP: ${PUBLIC_IP:?}
+    volumes:
+      - './rathena:/rathena'
 
 volumes:
   db_data:
