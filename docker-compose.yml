@@ -31,7 +31,6 @@ services:
       PUBLIC_IP: ${PUBLIC_IP:?}
     volumes:
       - './rathena/conf:/rathena/conf'
-      - './rathena/log:/rathena/log'
 
 volumes:
   db_data:
