@@ -6,6 +6,8 @@ services:
       MARIADB_DATABASE: ${DB_NAME:-ragnarok}
       MARIADB_USER: ${DB_USER:-ragnarok}
       MARIADB_PASSWORD: ${DB_PASSWORD:?}
+    ports:
+      - '3306:3306'
     command:
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
@@ -29,4 +31,4 @@ services:
       PUBLIC_IP: ${PUBLIC_IP:?}
 
 volumes:
-  db_data:
+  db_data:
